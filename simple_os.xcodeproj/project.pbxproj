@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		97DB478325D4598F003A779C /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 97DB478225D4598F003A779C /* main.c */; };
+		97DB478C25D45BB9003A779C /* interpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 97DB478B25D45BB9003A779C /* interpreter.c */; };
+		97DB479025D45BE1003A779C /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = 97DB478F25D45BE1003A779C /* makefile */; };
+		97DB479625D45C0C003A779C /* shell.c in Sources */ = {isa = PBXBuildFile; fileRef = 97DB479525D45C0C003A779C /* shell.c */; };
+		97DB479A25D45C24003A779C /* shellmemory.c in Sources */ = {isa = PBXBuildFile; fileRef = 97DB479925D45C24003A779C /* shellmemory.c */; };
+		97DB47A025D45CE6003A779C /* kernel.c in Sources */ = {isa = PBXBuildFile; fileRef = 97DB479F25D45CE6003A779C /* kernel.c */; };
+		97DB47A425D45CFF003A779C /* cpu.c in Sources */ = {isa = PBXBuildFile; fileRef = 97DB47A325D45CFF003A779C /* cpu.c */; };
+		97DB47A825D45D13003A779C /* pcb.c in Sources */ = {isa = PBXBuildFile; fileRef = 97DB47A725D45D13003A779C /* pcb.c */; };
+		97DB47AC25D45D26003A779C /* ram.c in Sources */ = {isa = PBXBuildFile; fileRef = 97DB47AB25D45D26003A779C /* ram.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +31,21 @@
 
 /* Begin PBXFileReference section */
 		97DB477F25D4598F003A779C /* simple_os */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = simple_os; sourceTree = BUILT_PRODUCTS_DIR; };
-		97DB478225D4598F003A779C /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		97DB478B25D45BB9003A779C /* interpreter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = interpreter.c; sourceTree = "<group>"; };
+		97DB478E25D45BD8003A779C /* interpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interpreter.h; sourceTree = "<group>"; };
+		97DB478F25D45BE1003A779C /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
+		97DB479525D45C0C003A779C /* shell.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = shell.c; sourceTree = "<group>"; };
+		97DB479825D45C15003A779C /* shell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shell.h; sourceTree = "<group>"; };
+		97DB479925D45C24003A779C /* shellmemory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = shellmemory.c; sourceTree = "<group>"; };
+		97DB479C25D45C2B003A779C /* shellmemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shellmemory.h; sourceTree = "<group>"; };
+		97DB479E25D45CE6003A779C /* kernel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kernel.h; sourceTree = "<group>"; };
+		97DB479F25D45CE6003A779C /* kernel.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kernel.c; sourceTree = "<group>"; };
+		97DB47A225D45CFF003A779C /* cpu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cpu.h; sourceTree = "<group>"; };
+		97DB47A325D45CFF003A779C /* cpu.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cpu.c; sourceTree = "<group>"; };
+		97DB47A625D45D13003A779C /* pcb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pcb.h; sourceTree = "<group>"; };
+		97DB47A725D45D13003A779C /* pcb.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pcb.c; sourceTree = "<group>"; };
+		97DB47AA25D45D26003A779C /* ram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ram.h; sourceTree = "<group>"; };
+		97DB47AB25D45D26003A779C /* ram.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ram.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +78,21 @@
 		97DB478125D4598F003A779C /* simple_os */ = {
 			isa = PBXGroup;
 			children = (
-				97DB478225D4598F003A779C /* main.c */,
+				97DB479C25D45C2B003A779C /* shellmemory.h */,
+				97DB479925D45C24003A779C /* shellmemory.c */,
+				97DB479825D45C15003A779C /* shell.h */,
+				97DB479525D45C0C003A779C /* shell.c */,
+				97DB478F25D45BE1003A779C /* makefile */,
+				97DB478E25D45BD8003A779C /* interpreter.h */,
+				97DB478B25D45BB9003A779C /* interpreter.c */,
+				97DB479E25D45CE6003A779C /* kernel.h */,
+				97DB479F25D45CE6003A779C /* kernel.c */,
+				97DB47A225D45CFF003A779C /* cpu.h */,
+				97DB47A325D45CFF003A779C /* cpu.c */,
+				97DB47A625D45D13003A779C /* pcb.h */,
+				97DB47A725D45D13003A779C /* pcb.c */,
+				97DB47AA25D45D26003A779C /* ram.h */,
+				97DB47AB25D45D26003A779C /* ram.c */,
 			);
 			path = simple_os;
 			sourceTree = "<group>";
@@ -118,7 +153,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97DB478325D4598F003A779C /* main.c in Sources */,
+				97DB47A425D45CFF003A779C /* cpu.c in Sources */,
+				97DB47A025D45CE6003A779C /* kernel.c in Sources */,
+				97DB479625D45C0C003A779C /* shell.c in Sources */,
+				97DB479025D45BE1003A779C /* makefile in Sources */,
+				97DB47A825D45D13003A779C /* pcb.c in Sources */,
+				97DB478C25D45BB9003A779C /* interpreter.c in Sources */,
+				97DB47AC25D45D26003A779C /* ram.c in Sources */,
+				97DB479A25D45C24003A779C /* shellmemory.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
