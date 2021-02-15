@@ -33,7 +33,7 @@ void addToRAM(FILE * p, int * start, int * end) {
         }
         else {
             // not enough space in RAM
-            printf("Error: Not enough RAM to add program");
+            printf("Error: Not enough RAM to add program\n");
             * end = -1;
             unloadRAM(* start, * end);
             break;
