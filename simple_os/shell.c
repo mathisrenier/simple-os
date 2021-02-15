@@ -22,6 +22,8 @@ int shellUI(void) {
         }
         
         if (!fgets(input, MAX_INPUT_LENGTH, stdin)) {
+            // if piping done, change stdin to terminal
+            printf("$ ");
             fgets(input, MAX_INPUT_LENGTH, tty);
         }
         
