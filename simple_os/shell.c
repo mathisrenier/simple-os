@@ -19,10 +19,11 @@ int shellUI(void) {
     while(1) {
         if(isatty(STDIN_FILENO)) {
             printf("$ ");  // avoids printing $ when redirecting the input
-            fgets(input, MAX_INPUT_LENGTH, tty);
         }
         
-        else fgets(input, MAX_INPUT_LENGTH, stdin);
+        if (!fgets(input, MAX_INPUT_LENGTH, stdin)) {
+            fgets(input, MAX_INPUT_LENGTH, tty);
+        }
         
         parse(input, args);
         interpreter(args);
