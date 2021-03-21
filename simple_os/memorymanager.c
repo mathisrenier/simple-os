@@ -121,7 +121,7 @@ int laucher(FILE * p, char * fileName) {
         int frameNumber1 = findFrame();
         loadPage(1, newFile, frameNumber1);
         
-        pcb = makePCB(frameNumber0, totalPages, 1, newFile);
+        pcb = makePCB(frameNumber0, totalPages, 0, newFile);
         updatePageTable(pcb, 0, frameNumber0, 0);
         updatePageTable(pcb, 1, frameNumber1, 0);
     }

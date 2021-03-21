@@ -154,8 +154,8 @@ void pageFaultTaskSwitch(void) {
         updatePC_offset(pcb, 0);
     }
     
-    updatePageTable(pcb, getPC_page(pcb) - 1, -1, 0);
     unloadFrame(pageTable[getPC_page(pcb) - 1]);
+    updatePageTable(pcb, getPC_page(pcb) - 1, -1, 0);
     
     addToReady(pcb);
 }
