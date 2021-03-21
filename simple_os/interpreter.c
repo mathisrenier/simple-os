@@ -63,8 +63,10 @@ void exec(char * fileNames[], int numArgs) {
     // launcher
     for(int i=0; i < numArgs; i++) {
         FILE * file = fopen(fileNames[i], "r");
-        if(!file)
+        if(!file) {
             printf("Error: Script %s could not be loaded\n", fileNames[i]);
+            return;
+        }
         
         //add i to the filename to avoid duplicates
         char s[100];
