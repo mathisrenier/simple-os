@@ -21,7 +21,9 @@ void resetCPU(int quanta);
 CPU * getCPU(void);
 int getIP(void);
 void setIP(int IP);
+int getOffset(void);
+void setOffset(int offset);
 int isCPUAvailable(void);
-void run(int quanta);
+int run(int quanta);
 
 #endif /* cpu_h */

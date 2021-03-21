@@ -58,22 +58,20 @@ void runCommand(char * fileName) {
 
 
 void exec(char * fileNames[], int numArgs) {
+    resetRam();
     
-    // check if fileNames just appear once
+    // launcher
     for(int i=0; i < numArgs; i++) {
-        for(int j=0; j<i; j++) {
-            if(!strcmp(fileNames[j], fileNames[i])) {
-                printf("Error: Script %s already loaded\n", fileNames[i]);
-                // in reality no loading done yet so no need to purge anything
-                // I decided to implement it this way because I did not want to make bigPurge() public
-                return;
-            }
-        }
-    }
-    
-    // myinit
-    for(int i=0; i < numArgs; i++) {
-        if(myinit(fileNames[i])) break;
+        FILE * file = fopen(fileNames[i], "r");
+        if(!file)
+            printf("Error: Script %s could not be loaded\n", fileNames[i]);
+        
+        //add i to the filename to avoid duplicates
+        char s[100];
+        snprintf(s, sizeof(s), "%s_%d.txt", fileNames[i], i);
+        
+        if(!laucher(file, s))
+            printf("Error: File %s could not be lauched\n", s);
     }
     
     scheduler();

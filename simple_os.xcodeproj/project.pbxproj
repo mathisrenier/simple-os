@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9758D60F25FFD8F200EA3604 /* memorymanager.c in Sources */ = {isa = PBXBuildFile; fileRef = 9758D60E25FFD8F200EA3604 /* memorymanager.c */; };
 		97DB478C25D45BB9003A779C /* interpreter.c in Sources */ = {isa = PBXBuildFile; fileRef = 97DB478B25D45BB9003A779C /* interpreter.c */; };
 		97DB479025D45BE1003A779C /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = 97DB478F25D45BE1003A779C /* makefile */; };
 		97DB479625D45C0C003A779C /* shell.c in Sources */ = {isa = PBXBuildFile; fileRef = 97DB479525D45C0C003A779C /* shell.c */; };
@@ -30,6 +31,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9758D60D25FFD8F200EA3604 /* memorymanager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = memorymanager.h; sourceTree = "<group>"; };
+		9758D60E25FFD8F200EA3604 /* memorymanager.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = memorymanager.c; sourceTree = "<group>"; };
 		97DB477F25D4598F003A779C /* simple_os */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = simple_os; sourceTree = BUILT_PRODUCTS_DIR; };
 		97DB478B25D45BB9003A779C /* interpreter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = interpreter.c; sourceTree = "<group>"; };
 		97DB478E25D45BD8003A779C /* interpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interpreter.h; sourceTree = "<group>"; };
@@ -93,6 +96,8 @@
 				97DB47A725D45D13003A779C /* pcb.c */,
 				97DB47AA25D45D26003A779C /* ram.h */,
 				97DB47AB25D45D26003A779C /* ram.c */,
+				9758D60D25FFD8F200EA3604 /* memorymanager.h */,
+				9758D60E25FFD8F200EA3604 /* memorymanager.c */,
 			);
 			path = simple_os;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 				97DB47A025D45CE6003A779C /* kernel.c in Sources */,
 				97DB479625D45C0C003A779C /* shell.c in Sources */,
 				97DB479025D45BE1003A779C /* makefile in Sources */,
+				9758D60F25FFD8F200EA3604 /* memorymanager.c in Sources */,
 				97DB47A825D45D13003A779C /* pcb.c in Sources */,
 				97DB478C25D45BB9003A779C /* interpreter.c in Sources */,
 				97DB47AC25D45D26003A779C /* ram.c in Sources */,

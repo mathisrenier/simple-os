@@ -14,6 +14,7 @@
 #include "shellmemory.h"
 #include "shell.h"
 #include "kernel.h"
+#include "memorymanager.h"
 
 #define MAX_INPUT_LENGTH 1000
 #define MAX_ARGS_NUM 10

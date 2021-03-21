@@ -14,6 +14,7 @@
 #include "pcb.h"
 #include "cpu.h"
 #include "shell.h"
+#include "memorymanager.h"
 
 #define QUANTA 2
 
@@ -21,6 +22,8 @@ typedef struct ReadyQueueNode ReadyQueueNode;
 typedef struct ReadyQueue ReadyQueue;
 
 void addToReady(PCB * pcb);
+PCB * getPCB(ReadyQueueNode * node);
+ReadyQueueNode * getNextNode(ReadyQueueNode * node);
 int myinit(char * filename);
 void scheduler(void);
 
