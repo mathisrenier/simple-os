@@ -14,7 +14,7 @@ int shellUI(void) {
     char * args[MAX_ARGS_NUM];
     clean(args);
     
-    printf("Welcome to the Mathis shell!\nVersion 2.1 Updated March 2021\n");
+    printf("Welcome to the Mathis shell!\nVersion 3.0 Updated April 2021\n");
     
     while(1) {
         if(isatty(STDIN_FILENO)) {

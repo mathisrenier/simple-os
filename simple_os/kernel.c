@@ -163,6 +163,7 @@ void pageFaultTaskSwitch(void) {
 void boot(void) {
     resetRam();
     system("if [ -d BackingStore ]; then rm -rf Backingstore; fi; mkdir BackingStore");
+    initIO();
 }
 
 int kernel(void) {
@@ -172,10 +173,11 @@ int kernel(void) {
     readyQueue->tail = NULL;
     
     
-    printf("Kernel 2.0 loaded!\n");
+    printf("Kernel 3.0 loaded!\n");
     shellUI();
     
     free(cpu);
+    closeAllFiles();
     
     return 0;
 }

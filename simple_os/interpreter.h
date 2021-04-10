@@ -15,9 +15,10 @@
 #include "shell.h"
 #include "kernel.h"
 #include "memorymanager.h"
+#include "DISK_driver.h"
 
 #define MAX_INPUT_LENGTH 1000
-#define MAX_ARGS_NUM 10
+#define MAX_ARGS_NUM 60
 
 void interpreter(char * args[]);
 void parse(char * input, char * args[]);

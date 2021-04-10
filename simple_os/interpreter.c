@@ -79,6 +79,61 @@ void exec(char * fileNames[], int numArgs) {
     scheduler();
 }
 
+
+void mountCommand(char * partitionName, int numOfBlocks, int blockSize) {
+    partition(partitionName, blockSize, numOfBlocks);
+    mountFS(partitionName);
+}
+
+
+void writeCommand(char * fileName, char * text) {
+    int fileno = openfile(fileName);
+    
+    if(fileno != -1) {
+        int blockSize = getBlockSize();
+        int noBlocksToWrite = strlen(text)/blockSize + 1;
+        
+        char  * data = text;
+        for(int i=0; i< noBlocksToWrite; i++) {
+            if(i) data += blockSize;
+            writeBlock(fileno, data);
+        }
+        
+        closefile(fileno);
+    }
+    else {
+        printf("error: could not open file. Make sure there are at leat 10 free block to allocate the file\n");
+    }
+}
+
+
+void readCommand(char * fileName, char * var) {
+    int fileno = openfile(fileName);
+    
+    if(fileno != -1) {
+        char data[5000] = "";
+        
+        char  * temp = readBlock(fileno);
+        
+        if(!temp) {
+            printf("error: could not read file\n");
+            return;
+        }
+        
+        while(temp) {
+            strcat(data, temp);
+            temp = readBlock(fileno);
+        }
+        
+        closefile(fileno);
+        
+        set(var, data);
+    }
+    else {
+        printf("error: could not open file. Make sure there are at leat 10 free block to allocate the file\n");
+    }
+}
+
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
@@ -113,6 +168,52 @@ void interpreter(char * args[]) {
             else if(!args[2]) exec(args+1, 1);
             else if(args[2] && !args[3]) exec(args+1, 2);
             else exec(args + 1, 3);
+        }
+        else if(!strcmp(args[0], "mount")) {
+            if(!args[3]) printf("mount: too few arguments\n");
+            else if(args[4]) printf("mount: too many arguments\n");
+            else mountCommand(args[1], atoi(args[2]), atoi(args[3]));
+        }
+        else if(!strcmp(args[0], "write")) {
+            if(!args[2]) {
+                printf("write: too few arguments\n");
+                return;
+            }
+            
+            // handle brackets
+            char text[MAX_ARGS_NUM][100];
+            int j = 0;
+            if(!strcmp(args[2], "[")) {
+                
+                for(int i=3; i<MAX_ARGS_NUM; i++) {
+                    if(!args[i]) {
+                        printf("error: unconventional argument form\n");
+                        return;
+                    }
+                    else if(!strcmp(args[i], "]")) {
+                        break;
+                    }
+                    else {
+                        strcpy(text[j], args[i]);
+                        j++;
+                    }
+                }
+            }
+            // concat text array into a single string
+            char concatText[5000] = "";
+            if(j > 0 ) strcat(concatText, text[0]);
+            for(int i=1; i<j; i++) {
+                if(text[i]){
+                    strcat(concatText, text[i]);
+                }
+            }
+            
+            writeCommand(args[1], concatText);
+        }
+        else if(!strcmp(args[0], "read")) {
+            if(!args[2]) printf("read: too few arguments\n");
+            else if(args[3]) printf("read: too many arguments\n");
+            else readCommand(args[1], args[2]);
         }
         else printf("Unknown command %s\n", args[0]);
     }

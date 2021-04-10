@@ -16,6 +16,7 @@
 #include "cpu.h"
 #include "shell.h"
 #include "memorymanager.h"
+#include "DISK_driver.h"
 
 #define QUANTA 2
 
