@@ -194,7 +194,7 @@ int isEOF(int fatIdx) {
 
 void loadBlockBuffer(FILE * f, int fatIdx) {
     // reset block buffer
-    for(int i=0; i< PARTITION.block_sizes; i++) {
+    for(int i=0; i< PARTITION.block_sizes + 1S; i++) {
         block_buffer[i] = '\0';
     }
     
@@ -291,7 +291,7 @@ int mountFS(char * name) {
     
     rewind(file);
     
-    block_buffer = (char *) malloc(PARTITION.block_sizes * sizeof(char));
+    block_buffer = (char *) malloc((PARTITION.block_sizes + 1) * sizeof(char));
     active_partition = file;
     
     return 1;
