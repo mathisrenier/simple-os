@@ -194,7 +194,7 @@ int isEOF(int fatIdx) {
 
 void loadBlockBuffer(FILE * f, int fatIdx) {
     // reset block buffer
-    for(int i=0; i< PARTITION.block_sizes + 1S; i++) {
+    for(int i=0; i< PARTITION.block_sizes + 1; i++) {
         block_buffer[i] = '\0';
     }
     
