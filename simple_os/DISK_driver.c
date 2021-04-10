@@ -409,7 +409,6 @@ void closeAllFiles(void) {
     for(int i=0; i< 5; i++) {
         if(active_file_table[i]) fclose(active_file_table[i]);
     }
-    fclose(active_partition);
 }
 
 
@@ -422,4 +421,8 @@ void freeBlockBuffer(void) {
     free(block_buffer);
 }
 
+
+void closeActivePartition(void) {
+    fclose(active_partition);
+}
 
