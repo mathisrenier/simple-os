@@ -81,7 +81,7 @@ void initPartition(FILE * f) {
 }
 
 
-/// returns the index of the FAT containing the name or -1 otherwise
+// returns the index of the FAT containing the name or -1 otherwise
 int findName(char * name) {
     for(int i=0; i<20; i++) {
         if(!strcmp(fat[i].filename, name)) return i;
@@ -193,6 +193,11 @@ int isEOF(int fatIdx) {
 
 
 void loadBlockBuffer(FILE * f, int fatIdx) {
+    // reset block buffer
+    for(int i=0; i< PARTITION.block_sizes; i++) {
+        block_buffer[i] = '\0';
+    }
+    
     seekBlock(f, fatIdx, fat[fatIdx].current_location);
     int j = 0;
     for(int i=0; i<PARTITION.block_sizes * 2; i++) {
@@ -250,7 +255,7 @@ int partition(char * name, int blocksize, int totalblocks) {
     
     // if file does not exist
     if(!file) {
-        fclose(file);
+        //fclose(file);
         file = fopen(path, "a+");
         PARTITION.total_blocks = totalblocks;
         PARTITION.block_sizes = blocksize;
