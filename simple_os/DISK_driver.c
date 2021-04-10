@@ -410,7 +410,6 @@ void closeAllFiles(void) {
         if(active_file_table[i]) fclose(active_file_table[i]);
     }
     fclose(active_partition);
-    free(block_buffer);
 }
 
 
@@ -419,5 +418,8 @@ int getBlockSize(void) {
 }
 
 
+void freeBlockBuffer(void) {
+    free(block_buffer);
+}
 
 

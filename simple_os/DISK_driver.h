@@ -22,6 +22,7 @@ char * readBlock(int file);
 int writeBlock(int file, char * data);
 void closeAllFiles(void);
 int getBlockSize(void);
+void freeBlockBuffer(void);
 
 
 #endif /* DISK_driver_h */

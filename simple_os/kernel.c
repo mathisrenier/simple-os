@@ -179,6 +179,7 @@ int kernel(void) {
     free(cpu);
     closeAllFiles();
     
+    
     return 0;
 }
 
